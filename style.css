@@ -44,3 +44,34 @@ button {
   padding: 7px 15px;
   margin: 0px 10px;
 }
+
+/*Welcome Page CSS*/
+.welcome-container {
+  height: 245.33px;
+  /* border: 1px solid blue; */
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icon-container {
+  /* border: 1px solid red; */
+  width: 40%;
+}
+#tick-icon {
+  width: 100%;
+  height: auto;
+}
+.welcome-text {
+  text-align: center;
+  margin: 10px;
+  font-size: 30px;
+}
+
+/*CSS for hiding*/
+.show-container {
+  display: flex;
+}
+.hide-container {
+  display: none;
+}
