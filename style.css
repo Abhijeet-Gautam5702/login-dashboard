@@ -2,25 +2,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  /*   background-color: #ffc000; */
+  background-color: #ffee58;
 }
 main {
+  background-color: #ff5f1f;
+  /*   background-color:#FFA500; */
   margin: 10px;
   max-width: 400px;
   min-width: 230px;
-  border: 2px solid black;
+  /*   border: 2px solid black; */
   padding: 10px;
+  border-radius: 10px;
+  box-shadow: 7px 7px black;
 }
 
 /*Login-container CSS*/
 #login-title {
+  /*   border:1px solid black; */
+  padding: 10px;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  font-weight: 300;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 }
 .credential-container {
   display: flex;
@@ -28,8 +41,11 @@ main {
   align-items: center;
   /*   border:1px solid blue; */
   margin: 10px;
+  margin-top: 20px;
 }
 input {
+  border-radius: 5px;
+  border: none;
   width: 100%;
   padding: 10px;
   margin: 5px;
@@ -41,13 +57,23 @@ input {
   align-items: center;
 }
 button {
-  padding: 7px 15px;
+  background-color: #d2042d;
+  border-radius: 5px;
+  /*   border:1px solid white; */
+  border: none;
+  color: black;
+  /*   font-weight: 700; */
+  padding: 10px 15px;
   margin: 0px 10px;
+}
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 /*Welcome Page CSS*/
 .welcome-container {
-  height: 245.33px;
   /* border: 1px solid blue; */
   display: none;
   flex-direction: column;
@@ -65,7 +91,7 @@ button {
 .welcome-text {
   text-align: center;
   margin: 10px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 /*CSS for hiding*/

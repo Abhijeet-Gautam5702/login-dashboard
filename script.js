@@ -3,43 +3,46 @@ const signupBtn = document.getElementById("signup-btn");
 const welcomeCont = document.querySelector(".welcome-container");
 const btnCont = document.querySelector(".btn-container");
 const loginCont = document.querySelector(".login-container");
-
-// console.log(btnCont)
-// console.log(loginCont)
-// console.log(loginBtn)
-// console.log(welcomeCont)
+const mainEl = document.getElementsByTagName("main")[0];
+document.getElementsByTagName("main")[0];
 
 loginBtn.addEventListener("click", function () {
+  if (localStorage.getItem("userCreds") === null) {
+    resetStorage();
+  }
+
+  const height = loginCont.offsetHeight;
+
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-
-  //   console.log(username);
-  //   console.log(password);
 
   //extract credential-array (of objects) from the localStorage
   const userCreds = JSON.parse(localStorage.getItem("userCreds"));
   if (searchUsername(userCreds, username)) {
-    // console.log("username found");
-    // window.alert("username found")
     if (matchPassword(userCreds, password)) {
-      //   console.log("username and password matched");
       btnCont.classList.toggle("hide-container");
       loginCont.classList.toggle("hide-container");
       welcomeCont.classList.toggle("show-container");
+
+      welcomeCont.style.height = toString(height);
+
+      mainEl.style.backgroundColor = "#7DF9FF";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
     } else {
       window.alert("You have entered an incorrect password");
+      document.getElementById("password").value = "";
     }
   } else {
     window.alert("Account not found! Please sign up");
   }
-  //   console.log(userCreds[0].password);
-  //   console.log(userCreds[0].username);
-
-  document.getElementById("username").value = "";
-  document.getElementById("password").value = "";
 });
 
 signupBtn.addEventListener("click", function () {
+  if (localStorage.getItem("userCreds") === null) {
+    resetStorage();
+  }
+
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
   const userCreds = JSON.parse(localStorage.getItem("userCreds"));
@@ -52,12 +55,12 @@ signupBtn.addEventListener("click", function () {
     };
     userCreds.push(credObj);
     localStorage.setItem("userCreds", JSON.stringify(userCreds));
-    console.log("Account successfully created!");
   }
 
   btnCont.classList.toggle("hide-container");
   loginCont.classList.toggle("hide-container");
   welcomeCont.classList.toggle("show-container");
+  mainEl.style.backgroundColor = "#7DF9FF";
   const welcomeTxt = welcomeCont.querySelector(".welcome-text");
   welcomeTxt.textContent = "Account successfully created!";
 
